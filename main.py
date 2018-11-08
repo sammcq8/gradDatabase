@@ -37,6 +37,14 @@ def returnStudent(studentInfo):
         {'LName': Lname, 'FName' : Fname, 'SID' : SID })
     return c.fetchone()
 
+def returnStudentSID(SID):
+    c.execute("""
+        SELECT StudentID, FName, LName, Gender, Graduating, Walking, Val, Sal, HallOfFame, NHS, HonorsDiploma, HonorsScholar
+        FROM tblStudents
+        WHERE StudentID = :SID """,
+        {'SID' : SID })
+    return c.fetchone()
+
 def createStudent(SID, FName, LName, GradYear, Gender):
     if (Gender == "Male"):
         genderNum = 0
@@ -62,7 +70,15 @@ def importCsvParser(file):
             line_count = line_count + 1
         conn.commit()
         print(f'Processed {line_count} lines.')
+student = 111111
+def populate():
+    print(student)
 
+    eSIDVar.set(student[0])
+    eFNameVar.set(student[2])
+    eLNameVar.set(student[1])
+
+#def populate():
 
 #importCsvParser('csvFunzies.csv')
 

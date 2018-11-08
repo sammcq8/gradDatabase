@@ -3,9 +3,11 @@ import sqlite3
 import main
 
 
+activeStudent = main.returnStudentSID(111111)
+#Main section of the GUI program
 class GradDatabase(tk.Tk):
 
-
+    #Establishes the window for the program, every frame of the window has it's own entry into a dictionary
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, *kwargs)
         container = tk.Frame(self)
@@ -17,33 +19,33 @@ class GradDatabase(tk.Tk):
 
         self.frames = {}
 
-        frame = EditStudentsWindow(container, self)
-        frame2 = MenuWindow(container, self)
-        frame3 = ImportStudentsWindow(container, self)
-        frame4 = MassEditStudentsWindow(container, self)
-        frame5 = RunReportsWindow(container, self)
+        ESframe = EditStudentsWindow(container, self)
+        MenuFrame = MenuWindow(container, self)
+        ISFrame = ImportStudentsWindow(container, self)
+        MESFrame = MassEditStudentsWindow(container, self)
+        RRFrame = RunReportsWindow(container, self)
 
-        self.frames[EditStudentsWindow] = frame
-        self.frames[MenuWindow] = frame2
-        self.frames[ImportStudentsWindow] = frame3
-        self.frames[MassEditStudentsWindow] = frame4
-        self.frames[RunReportsWindow] = frame5
+        self.frames[EditStudentsWindow] = ESframe
+        self.frames[MenuWindow] = MenuFrame
+        self.frames[ImportStudentsWindow] = ISFrame
+        self.frames[MassEditStudentsWindow] = MESFrame
+        self.frames[RunReportsWindow] = RRFrame
 
-        frame.grid(row=0,column=0,sticky="nsew")
-        frame2.grid(row=0,column=0,sticky="nsew")
-        frame3.grid(row=0,column=0,sticky="nsew")
-        frame4.grid(row=0,column=0,sticky="nsew")
-        frame5.grid(row=0,column=0,sticky="nsew")
+        ESframe.grid(row=0,column=0,sticky="nsew")
+        MenuFrame.grid(row=0,column=0,sticky="nsew")
+        ISFrame.grid(row=0,column=0,sticky="nsew")
+        MESFrame.grid(row=0,column=0,sticky="nsew")
+        RRFrame.grid(row=0,column=0,sticky="nsew")
 
         self.showFrame(MenuWindow)
-
+    #Takes and argument (cont) that is the frame needed, refrences the dictionary and makes that frame the toplevel
     def showFrame(self, cont):
 
         frame = self.frames[cont]
         frame.tkraise()
 
-class EditStudentsWindow(tk.Frame):
 
+class EditStudentsWindow(tk.Frame):
     gender = 2
 
     def __init__(self, parent, controller):
@@ -53,19 +55,19 @@ class EditStudentsWindow(tk.Frame):
         #root = tk.Tk()
         #root.title("Graduation Database")
         #root.resizable(width=False, height=False)
-
         gender = 2
-        self.eLNameVar = tk.StringVar(self)
-        self.eFNameVar = tk.StringVar(self)
-        self.eSIDVar = tk.StringVar(self)
         #Frames
         menuFrame = tk.Frame(self, width = 150, height = 500, bg = "grey", padx = 10)
         workspaceFrame = tk.Frame(self, width = 650, height = 500,  padx = 30)
 
         #Worksace Frame Items
-        eLNameVar = tk.StringVar(self)
-        eFNameVar = tk.StringVar(self)
-        eSIDVar = tk.StringVar(self)
+        global activeStudent
+        eFNameVariable = tk.StringVar(self, activeStudent[1])
+        eLNameVariable = tk.StringVar(self, activeStudent[2])
+        eSIDVariable = tk.IntVar(self, activeStudent[0])
+        print(eFNameVariable)
+
+
         #Lables
         lblFName = tk.Label(workspaceFrame, text="First Name:  ")
         lblLName = tk.Label(workspaceFrame, text="Last Name:  ")
@@ -74,9 +76,9 @@ class EditStudentsWindow(tk.Frame):
         lblGender = tk.Label(workspaceFrame, text="Gender:  ")
 
         #Entry boxes
-        eLName = tk.Entry(workspaceFrame, textvariable = eLNameVar)
-        eFName = tk.Entry(workspaceFrame, textvariable = eFNameVar)
-        eSID = tk.Entry(workspaceFrame, textvariable = eSIDVar)
+        eLName = tk.Entry(workspaceFrame, textvariable = eLNameVariable )
+        eFName = tk.Entry(workspaceFrame, textvariable = eFNameVariable )
+        eSID = tk.Entry(workspaceFrame, textvariable = eSIDVariable )
 
         #Radio Buttons
         rdbFemale = tk.Radiobutton(workspaceFrame, text = "Female", variable = gender, value = 1)
@@ -153,13 +155,16 @@ class EditStudentsWindow(tk.Frame):
         btnQuit.grid(row = 11, column = 2, sticky = "S")
         btnSearch.grid(row = 12, column = 2)
 
-    def populate(studentName):
-        student = main.returnStudent(studentName)
-        print(student)
 
-        eSIDVar.set(student[0])
-        eFNameVar.set(student[2])
-        eLNameVar.set(student[1])
+        tup = ("Natalie", "Knight", 111111)
+        self.populate(tup)
+    def populate(self, studentName ):
+            student = main.returnStudent(studentName)
+            print(student)
+            #eSID.set(student[0])
+            #eFName.set(student[2])
+            #eLname.insert(0,studentName[1])
+
 
 
 
@@ -342,8 +347,10 @@ class SearchResults():
         btnEnter.pack()
 
     def enter(self, parent, list, top):
+        global activeStudent
         activeStudent = list.get("active")
-        EditStudentsWindow.populate(activeStudent)
+        #print(activeStudent)
+        #main.populate(activeStudent)
         top.destroy()
 
 
