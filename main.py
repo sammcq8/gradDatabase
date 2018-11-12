@@ -81,6 +81,6 @@ def populate():
 #def populate():
 
 #importCsvParser('csvFunzies.csv')
-
+print(returnStudentSID(222222))
 #c.execute("SELECT * FROM tblStudents")
 #print (c.fetchall())

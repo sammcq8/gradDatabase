@@ -1,6 +1,7 @@
 import tkinter as tk
 import sqlite3
 import main
+import NewEditStudents
 
 
 activeStudent = main.returnStudentSID(111111)
@@ -156,19 +157,6 @@ class EditStudentsWindow(tk.Frame):
         btnSearch.grid(row = 12, column = 2)
 
 
-        tup = ("Natalie", "Knight", 111111)
-        self.populate(tup)
-    def populate(self, studentName ):
-            student = main.returnStudent(studentName)
-            print(student)
-            #eSID.set(student[0])
-            #eFName.set(student[2])
-            #eLname.insert(0,studentName[1])
-
-
-
-
-#    def save(self):
 
 
 class MenuWindow(tk.Frame):
@@ -347,11 +335,11 @@ class SearchResults():
         btnEnter.pack()
 
     def enter(self, parent, list, top):
-        global activeStudent
         activeStudent = list.get("active")
         #print(activeStudent)
-        #main.populate(activeStudent)
+        NewEditStudents.EditStudentsWindowNEW(activeStudent[2])
         top.destroy()
+        #self.destroy()
 
 
 
