@@ -28,14 +28,6 @@ class EditStudentsWindowNEW():
         chkbHonorsScholarVar = tk.IntVar(top, activeStudent[11])
         chkbHonorsDiplomaVar = tk.IntVar(top, activeStudent[10])
 
-#        print(chkbWalkingVar.get())
-#        print(chkbGraduatingVar.get())
-#        print(chkbSalVar.get())
-#        print(chkbValVar.get())
-#        print(chkbHallOfFameVar.get())
-#        print(chkbNHSVar.get())
-#        print(chkbHonorsScholarVar.get())
-#        print(chkbHonorsDiplomaVar.get())
 
         #Lables
         lblFName = tk.Label(workspaceFrame, text="First Name:  ")
@@ -49,16 +41,12 @@ class EditStudentsWindowNEW():
         eFName = tk.Entry(workspaceFrame, textvariable = eFNameVar )
         eSID = tk.Entry(workspaceFrame, textvariable = eSIDVar )
 
-#        def populateTuple():
-#            tuple = (eFNameVar.get(), eLNameVar.get(), eSIDVar.get(), rdbGenderVar.get(), chkbGraduatingVar.get(), chkbWalkingVar.get(), chkbSalVar.get(), chkbValVar.get(), chkbHallOfFameVar.get(), chkbNHSVar.get(), chkbHonorsScholarVar.get(), chkbHonorsDiploma.get())
-#            self.save(tuple)
-
 
         #Radio Buttons
         rdbFemale = tk.Radiobutton(workspaceFrame, text = "Female", variable = rdbGenderVar, value = 1)
         rdbMale = tk.Radiobutton(workspaceFrame, text = "Male", variable = rdbGenderVar, value = 0)
 
-        btnSave = tk.Button(workspaceFrame, text = "Save", command = lambda: self.save((eFNameVar.get(), eLNameVar.get(), eSIDVar.get(), rdbGenderVar.get(), chkbGraduatingVar.get(), chkbWalkingVar.get(), chkbSalVar.get(), chkbValVar.get(), chkbHallOfFameVar.get(), chkbNHSVar.get(), chkbHonorsScholarVar.get(), chkbHonorsDiplomaVar.get()))  )
+        btnSave = tk.Button(workspaceFrame, text = "Save", command = lambda: main.updateStudent((eFNameVar.get(), eLNameVar.get(), eSIDVar.get(), rdbGenderVar.get(), chkbGraduatingVar.get(), chkbWalkingVar.get(), chkbSalVar.get(), chkbValVar.get(), chkbHallOfFameVar.get(), chkbNHSVar.get(), chkbHonorsScholarVar.get(), chkbHonorsDiplomaVar.get()))  )
 
         #These sad buttons were the only way I got it to work correctly :(
         btnWalking =       tk.Button(workspaceFrame, command = lambda: print(chkbWalkingVar.get()))
@@ -107,8 +95,3 @@ class EditStudentsWindowNEW():
         rdbMale.grid(row = 4, column = 1)
 
         btnSave.grid(row = 10, column = 2)
-
-
-
-    def save(self, tuple):
-        print(tuple[0])

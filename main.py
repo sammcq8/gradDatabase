@@ -80,6 +80,38 @@ def populate():
 
 #def populate():
 
+def updateStudent(newStudentData):
+    #Tuple passes through data in this order:
+    #FName, LName, SID, Gender, Graduating, Walking, Sal, Val, HallOfFame, NHS, HonorsScholar, HonorsDiploma))
+
+    c.execute("""
+    UPDATE tblStudents SET
+        FName = :FName,
+        LName = :LName,
+        Gender = :Gender,
+        Graduating = :Graduating,
+        Walking = :Walking,
+        Val = :Val,
+        Sal = :Sal,
+        HallOfFame = :HallOfFame,
+        NHS = :NHS,
+        HonorsDiploma = :HonorsDiploma,
+        HonorsScholar = :HonorsScholar
+    WHERE StudentID = :SID""", {
+        "FName" : newStudentData[0],
+        "LName" : newStudentData[1],
+        "Gender" : newStudentData[3],
+        "Graduating" : newStudentData[4],
+        "Walking" : newStudentData[5],
+        "Val" : newStudentData[7],
+        "Sal" : newStudentData[6],
+        "HallOfFame" : newStudentData[8],
+        "NHS" : newStudentData[9],
+        "HonorsDiploma" : newStudentData[11],
+        "HonorsScholar" : newStudentData[10],
+        "SID" : newStudentData[2]})
+    conn.commit()
+
 #importCsvParser('csvFunzies.csv')
 print(returnStudentSID(222222))
 #c.execute("SELECT * FROM tblStudents")
