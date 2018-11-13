@@ -2,6 +2,7 @@ import main
 import tkinter as tk
 
 class EditStudentsWindowNEW():
+
     def __init__(self, StudentID):
         top = tk.Toplevel()
         activeStudent = main.returnStudentSID(StudentID)
@@ -14,9 +15,9 @@ class EditStudentsWindowNEW():
 
 
         #variables
-        eFNameVariable = tk.StringVar(top, activeStudent[1])
-        eLNameVariable = tk.StringVar(top, activeStudent[2])
-        eSIDVariable = tk.IntVar(top, activeStudent[0])
+        eFNameVar = tk.StringVar(top, activeStudent[1])
+        eLNameVar = tk.StringVar(top, activeStudent[2])
+        eSIDVar = tk.IntVar(top, activeStudent[0])
         rdbGenderVar = tk.IntVar(top, activeStudent[3])
         chkbGraduatingVar = tk.IntVar(workspaceFrame, activeStudent[4])
         chkbWalkingVar = tk.IntVar(workspaceFrame, activeStudent[5])
@@ -44,34 +45,35 @@ class EditStudentsWindowNEW():
         lblGender = tk.Label(workspaceFrame, text="Gender:  ")
 
         #Entry boxes
-        eLName = tk.Entry(workspaceFrame, textvariable = eLNameVariable )
-        eFName = tk.Entry(workspaceFrame, textvariable = eFNameVariable )
-        eSID = tk.Entry(workspaceFrame, textvariable = eSIDVariable )
+        eLName = tk.Entry(workspaceFrame, textvariable = eLNameVar )
+        eFName = tk.Entry(workspaceFrame, textvariable = eFNameVar )
+        eSID = tk.Entry(workspaceFrame, textvariable = eSIDVar )
+
+#        def populateTuple():
+#            tuple = (eFNameVar.get(), eLNameVar.get(), eSIDVar.get(), rdbGenderVar.get(), chkbGraduatingVar.get(), chkbWalkingVar.get(), chkbSalVar.get(), chkbValVar.get(), chkbHallOfFameVar.get(), chkbNHSVar.get(), chkbHonorsScholarVar.get(), chkbHonorsDiploma.get())
+#            self.save(tuple)
+
 
         #Radio Buttons
         rdbFemale = tk.Radiobutton(workspaceFrame, text = "Female", variable = rdbGenderVar, value = 1)
         rdbMale = tk.Radiobutton(workspaceFrame, text = "Male", variable = rdbGenderVar, value = 0)
 
-        btnSave = tk.Button(workspaceFrame,
-                        text = "Save",
-                        command = lambda: print(rdbGenderVar.get())
-                        )
+        btnSave = tk.Button(workspaceFrame, text = "Save", command = lambda: self.save((eFNameVar.get(), eLNameVar.get(), eSIDVar.get(), rdbGenderVar.get(), chkbGraduatingVar.get(), chkbWalkingVar.get(), chkbSalVar.get(), chkbValVar.get(), chkbHallOfFameVar.get(), chkbNHSVar.get(), chkbHonorsScholarVar.get(), chkbHonorsDiplomaVar.get()))  )
+
         #These sad buttons were the only way I got it to work correctly :(
-        btnWalking = tk.Button(workspaceFrame,        command = lambda: print(chkbWalkingVar.get()))
-        btnGraduating = tk.Button(workspaceFrame,     command = lambda: print(chkbGraduatingVar.get()))
-        btnSal = tk.Button(workspaceFrame,            command = lambda: print(chkbSalVar.get()))
-        btnVal = tk.Button(workspaceFrame,            command = lambda: print(chkbValVar.get()))
-        btnHallOfFame = tk.Button(workspaceFrame,     command = lambda: print(chkbHallOfFameVar.get()))
-        btnNHS = tk.Button(workspaceFrame,            command = lambda: print(chkbNHSVar.get()))
+        btnWalking =       tk.Button(workspaceFrame, command = lambda: print(chkbWalkingVar.get()))
+        btnGraduating =    tk.Button(workspaceFrame, command = lambda: print(chkbGraduatingVar.get()))
+        btnSal =           tk.Button(workspaceFrame, command = lambda: print(chkbSalVar.get()))
+        btnVal =           tk.Button(workspaceFrame, command = lambda: print(chkbValVar.get()))
+        btnHallOfFame =    tk.Button(workspaceFrame, command = lambda: print(chkbHallOfFameVar.get()))
+        btnNHS =           tk.Button(workspaceFrame,  command = lambda: print(chkbNHSVar.get()))
         btnHonorsScholar = tk.Button(workspaceFrame,  command = lambda: print(chkbHonorsScholarVar.get()))
         btnHonorsDiploma = tk.Button(workspaceFrame,  command = lambda: print(chkbHonorsDiplomaVar.get()))
 
 
                        #checkboxes
         chkbGraduating    = tk.Checkbutton(workspaceFrame, text = "Graduating",     variable = chkbGraduatingVar,    offvalue = 0, onvalue = 1)
-#        self.isChecked(chkbGraduating, chkbGraduatingVar)
         chkbWalking       = tk.Checkbutton(workspaceFrame, text = "Walking",        variable = chkbWalkingVar,       offvalue = 0, onvalue = 1)
-#        self.isChecked(chkbWalking, chkbWalkingVar)
         chkbSal           = tk.Checkbutton(workspaceFrame, text = "Salutorian",     variable = chkbSalVar,           offvalue = 0, onvalue = 1)
         chkbVal           = tk.Checkbutton(workspaceFrame, text = "Valedictorian",  variable = chkbValVar,           offvalue = 0, onvalue = 1)
         chkbHallOfFame    = tk.Checkbutton(workspaceFrame, text = "Hall of Fame",   variable = chkbHallOfFameVar,    offvalue = 0, onvalue = 1)
@@ -79,14 +81,6 @@ class EditStudentsWindowNEW():
         chkbHonorsScholar = tk.Checkbutton(workspaceFrame, text = "Honors Scholar", variable = chkbHonorsScholarVar, offvalue = 0, onvalue = 1)
         chkbHonorsDiploma = tk.Checkbutton(workspaceFrame, text = "Honors Diploma", variable = chkbHonorsDiplomaVar, offvalue = 0, onvalue = 1)
 
-#        chkbGraduating.pack()
-#        chkbWalking.pack()
-#        chkbSal.pack()
-#        chkbVal.pack()
-#        chkbHallOfFame.pack()
-#        chkbNHS.pack()
-#        chkbHonorsDiploma.pack()
-#        chkbHonorsScholar.pack()
 
 
         chkbGraduating.grid(row = 6, column = 1)
@@ -112,15 +106,9 @@ class EditStudentsWindowNEW():
         rdbFemale.grid(row = 4, column = 2)
         rdbMale.grid(row = 4, column = 1)
 
-
-
-#        btnSave.grid(row = 10, column = 2)
-#        btnHell2.grid(row = 10, column = 3)
+        btnSave.grid(row = 10, column = 2)
 
 
 
-
-
-    def isChecked(self, checkbox, checkboxVar):
-        if checkboxVar == 1:
-            checkbox.select()
+    def save(self, tuple):
+        print(tuple[0])
