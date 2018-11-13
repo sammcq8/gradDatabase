@@ -56,34 +56,11 @@ class EditStudentsWindow(tk.Frame):
         #root = tk.Tk()
         #root.title("Graduation Database")
         #root.resizable(width=False, height=False)
-        gender = 2
+
         #Frames
         menuFrame = tk.Frame(self, width = 150, height = 500, bg = "grey", padx = 10)
         workspaceFrame = tk.Frame(self, width = 650, height = 500,  padx = 30)
 
-        #Worksace Frame Items
-        global activeStudent
-        eFNameVariable = tk.StringVar(self, activeStudent[1])
-        eLNameVariable = tk.StringVar(self, activeStudent[2])
-        eSIDVariable = tk.IntVar(self, activeStudent[0])
-        print(eFNameVariable)
-
-
-        #Lables
-        lblFName = tk.Label(workspaceFrame, text="First Name:  ")
-        lblLName = tk.Label(workspaceFrame, text="Last Name:  ")
-        lblTitle = tk.Label(workspaceFrame, text = "Marion L Steele High School Graduation Database", pady = 7, anchor = "n")
-        lblSID = tk.Label(workspaceFrame, text="Student ID:  ")
-        lblGender = tk.Label(workspaceFrame, text="Gender:  ")
-
-        #Entry boxes
-        eLName = tk.Entry(workspaceFrame, textvariable = eLNameVariable )
-        eFName = tk.Entry(workspaceFrame, textvariable = eFNameVariable )
-        eSID = tk.Entry(workspaceFrame, textvariable = eSIDVariable )
-
-        #Radio Buttons
-        rdbFemale = tk.Radiobutton(workspaceFrame, text = "Female", variable = gender, value = 1)
-        rdbMale = tk.Radiobutton(workspaceFrame, text = "Male", variable = gender, value = 0)
 
         #buttons
         btnQuit = tk.Button(workspaceFrame,
@@ -100,13 +77,6 @@ class EditStudentsWindow(tk.Frame):
                        text="Search",
                        command= lambda : SearchBox(self))
 
-                       #checkboxes
-        chkbGraduating = tk.Checkbutton(workspaceFrame, text = "Graduating")
-        chkbWalking = tk.Checkbutton(workspaceFrame, text = "Walking")
-        chkbSal = tk.Checkbutton(workspaceFrame, text = "Salutorian")
-        chkbVal = tk.Checkbutton(workspaceFrame, text = "Valedictorian")
-        chkbHallOfFame = tk.Checkbutton(workspaceFrame, text = "Hall of Fame")
-        chkbNHS = tk.Checkbutton(workspaceFrame, text = "NHS")
 
         #Menu Frames
 
@@ -124,33 +94,14 @@ class EditStudentsWindow(tk.Frame):
 
                     #layouts in menu frame
         menuFrame.grid(column = 0, row = 0)
-
+        workspaceFrame.grid(column = 1, row = 0)
         btnMenu.grid(column = 0, row = 0)
         btnImportStudents.grid(row = 2)
         btnEditStudents.grid(row = 3)
         btnMassEditStudents.grid(row = 4)
         btnRunReports.grid(row = 5)
 
-        #layouts in workspace frame
-        workspaceFrame.grid(column = 1, row = 0, sticky = "N")
-        lblTitle.grid(row = 0, columnspan = 5)
-        lblFName.grid(row = 1)
-        eFName.grid(row = 1, column = 1)
-        lblLName.grid(row = 2)
-        eLName.grid(row = 2, column = 1)
-        lblSID.grid(row = 3)
-        eSID.grid(row = 3, column = 1)
 
-        lblGender.grid(row = 4)
-        rdbFemale.grid(row = 4, column = 2)
-        rdbMale.grid(row = 4, column = 1)
-
-        chkbGraduating.grid(row = 6, column = 1)
-        chkbWalking.grid(row = 6, column = 2)
-        chkbSal.grid(row = 7, column = 1)
-        chkbVal.grid(row = 7, column = 2)
-        chkbHallOfFame.grid(row = 8, column = 1)
-        chkbNHS.grid(row = 8, column = 2)
 
         btnShow.grid(row = 10, column = 2)
         btnQuit.grid(row = 11, column = 2, sticky = "S")
