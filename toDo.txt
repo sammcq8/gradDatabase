@@ -1,5 +1,4 @@
 Read the python docx documentation
 create the report code : populate lists, ez
-Edit students with the gui
-Add Honors scholar and honors diploma to the gui and database
 Add Middle Name to gui and database
+create Mass edit students parser

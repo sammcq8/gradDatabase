@@ -1,6 +1,7 @@
 import tkinter as tk
 import sqlite3
 import main
+import reports
 import NewEditStudents
 
 
@@ -164,9 +165,11 @@ class ImportStudentsWindow(tk.Frame):
 
         lblTitle = tk.Label(workspaceFrame, text = "Marion L Steele High School Graduation Database - Import Students", pady = 7, anchor = "n")
 
+        btnImport = tk.Button(workspaceFrame, text = "Import Students",pady = 15, command = lambda: main.importCsvParser("students.csv"))
         #________________________LAYOUTS__________________________________________
         workspaceFrame.grid(column = 1, row = 0)
         lblTitle.grid(column = 0, row = 0)
+        btnImport.grid(column = 0, row = 1)
 
 class MassEditStudentsWindow(tk.Frame):
     def __init__(self, parent, controller):
@@ -207,6 +210,15 @@ class RunReportsWindow(tk.Frame):
         tk.Frame.__init__(self, parent)
 
         menuFrame = tk.Frame(self, width = 150, height = 500, bg = "grey", padx = 10)
+        workspaceFrame = tk.Frame(self, width = 650, height = 500,  padx = 30)
+
+        #Workspace Frame Items
+
+        #BUttons
+        HonorsScholar = tk.Button(workspaceFrame, text = "Honors Scholar", pady = 5, padx = 5, command = reports.HonorScholarList)
+        WalkingOrder = tk.Button(workspaceFrame, text = "Boy Girl Walking Order", pady = 5, padx = 5, command = reports.boyGirlWalkingOrder)
+        HonorsDiploma = tk.Button(workspaceFrame, text = "Honors Diploma", pady = 5, padx = 5, command = reports.HonorsDiplomaList)
+        Graduating = tk.Button(workspaceFrame, text = "Graduating", pady = 5, padx = 5, command = reports.Graduating)
 
         #buttons
         btnMenu = tk.Button(menuFrame, text = "Menu", pady = 15, command = lambda: controller.showFrame(MenuWindow))
@@ -217,8 +229,18 @@ class RunReportsWindow(tk.Frame):
 
 
 
+        lblTitle = tk.Label(workspaceFrame, text = "Marion L Steele High School Graduation Database - Run Reports", pady = 7, anchor = "n")
+
+        #________________________LAYOUTS__________________________________________
+        workspaceFrame.grid(column = 1, row = 1)
+        lblTitle.grid(column = 0, row = 0, columnspan = 2)
+
+        WalkingOrder.grid(column = 1, row = 1)
+        HonorsScholar.grid(column = 0, row = 1)
+        HonorsDiploma.grid(column = 1, row = 2)
+        Graduating.grid(column = 0, row = 2)
         #layouts in menu frame
-        menuFrame.grid(column = 0, row = 0)
+        menuFrame.grid(column = 0, row = 1)
 
         btnMenu.grid(column = 0, row = 0)
         btnImportStudents.grid(row = 2)
@@ -228,13 +250,6 @@ class RunReportsWindow(tk.Frame):
 
         #workspace
 
-        workspaceFrame = tk.Frame(self, width = 650, height = 500,  padx = 30)
-
-        lblTitle = tk.Label(workspaceFrame, text = "Marion L Steele High School Graduation Database - Run Reports", pady = 7, anchor = "n")
-
-        #________________________LAYOUTS__________________________________________
-        workspaceFrame.grid(column = 1, row = 0)
-        lblTitle.grid(column = 0, row = 0)
 
 class SearchBox():
 

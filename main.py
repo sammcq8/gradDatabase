@@ -1,5 +1,6 @@
 import sqlite3
 import csv as csv
+import itertools
 
 #Connect to the database
 conn = sqlite3.connect('GradDatabase.db')
@@ -111,6 +112,8 @@ def updateStudent(newStudentData):
         "HonorsScholar" : newStudentData[10],
         "SID" : newStudentData[2]})
     conn.commit()
+
+
 
 #importCsvParser('csvFunzies.csv')
 print(returnStudentSID(222222))
