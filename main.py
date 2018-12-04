@@ -23,14 +23,13 @@ def searchStudents(SID, Fname, Lname):
         {'LName': Lname, 'FName' : Fname, 'SID' : SID })
     return c.fetchall()
 
-print(searchStudents(None, "Sean", None))
 
 def returnStudent(studentInfo):
     Fname = studentInfo[0]
     Lname = studentInfo[1]
     SID = studentInfo[2]
     c.execute("""
-        SELECT StudentID, FName, LName, Gender, Graduating, Walking, Val, Sal, HallOfFame, NHS, HonorsDiploma, HonorsScholar
+        SELECT StudentID, FName, LName, Gender, Graduating, Walking, Val, Sal, HallOfFame, NHS, HonorsDiploma, HonorsScholar, MName
         FROM tblStudents
         WHERE LName = :LName
         AND FName = :FName
@@ -40,21 +39,23 @@ def returnStudent(studentInfo):
 
 def returnStudentSID(SID):
     c.execute("""
-        SELECT StudentID, FName, LName, Gender, Graduating, Walking, Val, Sal, HallOfFame, NHS, HonorsDiploma, HonorsScholar
+        SELECT StudentID, FName, LName, Gender, Graduating, Walking, Val, Sal, HallOfFame, NHS, HonorsDiploma, HonorsScholar, MName
         FROM tblStudents
         WHERE StudentID = :SID """,
         {'SID' : SID })
     return c.fetchone()
 
-def createStudent(SID, FName, LName, GradYear, Gender):
+def createStudent(SID, FName, MName,  LName, GradYear, Gender):
     if (Gender == "Male"):
         genderNum = 0
     else:
         genderNum = 1
+    if MName == "NMN":
+        MName = None
     #For gender, 0 = Male 1=Female
-    c.execute("""INSERT INTO tblStudents (StudentID, FName, LName, GradYear, Gender)
-                    VALUES ( :SID, :FName, :LName, :GradYear, :Gender)
-                """, {'SID' : SID, 'FName' : FName, 'LName' : LName, 'GradYear' : GradYear, 'Gender' : genderNum})
+    c.execute("""INSERT INTO tblStudents (StudentID, FName, MName, LName, GradYear, Gender)
+                    VALUES ( :SID, :FName, :MName, :LName, :GradYear, :Gender)
+                """, {'SID' : SID, 'FName' : FName, 'MName' : MName, 'LName' : LName, 'GradYear' : GradYear, 'Gender' : genderNum})
 
 
 def importCsvParser(file):
@@ -64,14 +65,15 @@ def importCsvParser(file):
         for row in csv_reader:
             StudentID = row[0]
             FName = row[1]
-            LName = row[2]
-            GradYear = row[3]
-            Gender = row[4]
-            createStudent(StudentID, FName, LName, GradYear, Gender)
+            MName = row [2]
+            LName = row[3]
+            GradYear = row[4]
+            Gender = row[5]
+            createStudent(StudentID, FName, MName, LName, GradYear, Gender)
             line_count = line_count + 1
         conn.commit()
         print(f'Processed {line_count} lines.')
-student = 111111
+
 def populate():
     print(student)
 
@@ -88,6 +90,7 @@ def updateStudent(newStudentData):
     c.execute("""
     UPDATE tblStudents SET
         FName = :FName,
+        MName = :MName,
         LName = :LName,
         Gender = :Gender,
         Graduating = :Graduating,
@@ -100,6 +103,7 @@ def updateStudent(newStudentData):
         HonorsScholar = :HonorsScholar
     WHERE StudentID = :SID""", {
         "FName" : newStudentData[0],
+        "MName" : newStudentData[12],
         "LName" : newStudentData[1],
         "Gender" : newStudentData[3],
         "Graduating" : newStudentData[4],
@@ -116,6 +120,5 @@ def updateStudent(newStudentData):
 
 
 #importCsvParser('csvFunzies.csv')
-print(returnStudentSID(222222))
 #c.execute("SELECT * FROM tblStudents")
 #print (c.fetchall())

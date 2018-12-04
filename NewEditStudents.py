@@ -16,6 +16,7 @@ class EditStudentsWindowNEW():
 
         #variables
         eFNameVar = tk.StringVar(top, activeStudent[1])
+        eMNameVar = tk.StringVar(top, activeStudent[12])
         eLNameVar = tk.StringVar(top, activeStudent[2])
         eSIDVar = tk.IntVar(top, activeStudent[0])
         rdbGenderVar = tk.IntVar(top, activeStudent[3])
@@ -31,6 +32,7 @@ class EditStudentsWindowNEW():
 
         #Lables
         lblFName = tk.Label(workspaceFrame, text="First Name:  ")
+        lblMName = tk.Label(workspaceFrame, text="Middle Name:  ")
         lblLName = tk.Label(workspaceFrame, text="Last Name:  ")
         lblTitle = tk.Label(workspaceFrame, text = "Marion L Steele High School Graduation Database", pady = 7, anchor = "n")
         lblSID = tk.Label(workspaceFrame, text="Student ID:  ")
@@ -39,6 +41,7 @@ class EditStudentsWindowNEW():
         #Entry boxes
         eLName = tk.Entry(workspaceFrame, textvariable = eLNameVar )
         eFName = tk.Entry(workspaceFrame, textvariable = eFNameVar )
+        eMName = tk.Entry(workspaceFrame, textvariable = eMNameVar )
         eSID = tk.Entry(workspaceFrame, textvariable = eSIDVar )
 
 
@@ -46,7 +49,7 @@ class EditStudentsWindowNEW():
         rdbFemale = tk.Radiobutton(workspaceFrame, text = "Female", variable = rdbGenderVar, value = 1)
         rdbMale = tk.Radiobutton(workspaceFrame, text = "Male", variable = rdbGenderVar, value = 0)
 
-        btnSave = tk.Button(workspaceFrame, text = "Save", command = lambda: main.updateStudent((eFNameVar.get(), eLNameVar.get(), eSIDVar.get(), rdbGenderVar.get(), chkbGraduatingVar.get(), chkbWalkingVar.get(), chkbSalVar.get(), chkbValVar.get(), chkbHallOfFameVar.get(), chkbNHSVar.get(), chkbHonorsScholarVar.get(), chkbHonorsDiplomaVar.get()))  )
+        btnSave = tk.Button(workspaceFrame, text = "Save", command = lambda: main.updateStudent((eFNameVar.get(), eLNameVar.get(), eSIDVar.get(), rdbGenderVar.get(), chkbGraduatingVar.get(), chkbWalkingVar.get(), chkbSalVar.get(), chkbValVar.get(), chkbHallOfFameVar.get(), chkbNHSVar.get(), chkbHonorsScholarVar.get(), chkbHonorsDiplomaVar.get(), eMNameVar.get()  )))
 
         #These sad buttons were the only way I got it to work correctly :(
         btnWalking =       tk.Button(workspaceFrame, command = lambda: print(chkbWalkingVar.get()))
@@ -85,13 +88,15 @@ class EditStudentsWindowNEW():
         lblTitle.grid(row = 0, columnspan = 5)
         lblFName.grid(row = 1)
         eFName.grid(row = 1, column = 1)
-        lblLName.grid(row = 2)
-        eLName.grid(row = 2, column = 1)
-        lblSID.grid(row = 3)
-        eSID.grid(row = 3, column = 1)
+        lblMName.grid(row = 2)
+        eMName.grid(row = 2, column = 1)
+        lblLName.grid(row = 3)
+        eLName.grid(row = 3, column = 1)
+        lblSID.grid(row = 4)
+        eSID.grid(row = 4, column = 1)
 
-        lblGender.grid(row = 4)
-        rdbFemale.grid(row = 4, column = 2)
-        rdbMale.grid(row = 4, column = 1)
+        lblGender.grid(row = 5)
+        rdbFemale.grid(row = 5, column = 2)
+        rdbMale.grid(row = 5, column = 1)
 
         btnSave.grid(row = 10, column = 2)

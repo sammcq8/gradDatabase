@@ -1,4 +1,5 @@
-Read the python docx documentation
-create the report code : populate lists, ez
-Add Middle Name to gui and database
+Create more tempates for Reports
+Make current reports create Document
+Add file selector window to choose what to save report as and WHERE for all reports. Graduating currently has it
+Figure out how to get rid of the empty first line in Graduating Report
 create Mass edit students parser

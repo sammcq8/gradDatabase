@@ -6,6 +6,7 @@ c  = conn.cursor()
 c.execute(""" CREATE TABLE tblStudents(
                 StudentID INTEGER NOT NULL PRIMARY KEY,
                 FName TEXT,
+                MName TEXT,
                 LName TEXT,
                 GradYear INTEGER,
                 Gender INTEGER,

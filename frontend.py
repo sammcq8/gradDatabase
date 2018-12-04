@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import filedialog
 import sqlite3
 import main
 import reports
@@ -213,12 +214,12 @@ class RunReportsWindow(tk.Frame):
         workspaceFrame = tk.Frame(self, width = 650, height = 500,  padx = 30)
 
         #Workspace Frame Items
-
+        #filepath = (filedialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*"))))
         #BUttons
         HonorsScholar = tk.Button(workspaceFrame, text = "Honors Scholar", pady = 5, padx = 5, command = reports.HonorScholarList)
         WalkingOrder = tk.Button(workspaceFrame, text = "Boy Girl Walking Order", pady = 5, padx = 5, command = reports.boyGirlWalkingOrder)
         HonorsDiploma = tk.Button(workspaceFrame, text = "Honors Diploma", pady = 5, padx = 5, command = reports.HonorsDiplomaList)
-        Graduating = tk.Button(workspaceFrame, text = "Graduating", pady = 5, padx = 5, command = reports.Graduating)
+        Graduating = tk.Button(workspaceFrame, text = "Graduating", pady = 5, padx = 5, command =  lambda: reports.Graduating((filedialog.asksaveasfile(initialdir = "/",title = "Save As...", defaultextension = ".docx"))))
 
         #buttons
         btnMenu = tk.Button(menuFrame, text = "Menu", pady = 15, command = lambda: controller.showFrame(MenuWindow))

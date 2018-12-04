@@ -39,9 +39,10 @@ def boyGirlWalkingOrder():
 
     for boy, girl in itertools.zip_longest( boys, girls):
         if boy is not None:
-            print(boy)
+            document.add_paragraph(boy[0] + " " + boy[1], style = "Normal")
         if girl is not None:
-            print(girl)
+            document.add_paragraph(girl[0] + " " + girl[1], style = "Normal")
+    document.save(filepath)
 
 
 def HonorsDiplomaList():
@@ -49,9 +50,15 @@ def HonorsDiplomaList():
         SELECT Fname, Lname FROM tblStudents
         WHERE HonorsDiploma = 1
         ORDER BY LOWER(Lname) ASC""")
-    print(c.fetchall())
+    document = docx.Document("ReportTemplates/GraduatingAlphabetical.docx")
 
-def Graduating():
+    for item in c.fetchall():
+        document.add_paragraph(item[0] + " " + item[1], style = "Normal")
+        print(item)
+    document.save(filepath)
+    print(filepath)
+
+def Graduating(filepath):
     c.execute("""
         SELECT Fname, Lname FROM tblStudents
         WHERE Graduating = 1
@@ -61,4 +68,4 @@ def Graduating():
     for item in c.fetchall():
         document.add_paragraph(item[0] + " " + item[1], style = "Normal")
         print(item)
-    document.save("ReportTemplates/test.docx")
+    document.save(filepath)
