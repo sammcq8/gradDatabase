@@ -1,5 +1,5 @@
-Create more tempates for Reports
-Make current reports create Document
-Add file selector window to choose what to save report as and WHERE for all reports. Graduating currently has it
-Figure out how to get rid of the empty first line in Graduating Report
+Big Font Report
+Figure out how to get rid of the empty first line in reports
 create Mass edit students parser
+Add setup page where you can enter the year and reset the database
+Error checking for file selector -> In case of CANCEL or if import file is not CSV.

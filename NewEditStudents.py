@@ -1,13 +1,14 @@
-import main
+import functions
 import tkinter as tk
 
 class EditStudentsWindowNEW():
 
     def __init__(self, StudentID):
         top = tk.Toplevel()
-        activeStudent = main.returnStudentSID(StudentID)
+        activeStudent = functions.returnStudentSID(StudentID)
 
         top.title("Edit Student")
+        top.iconbitmap(r"Files\CometLogo.ico")
         top.resizable(width=False, height=False)
         #Frames
         workspaceFrame = tk.Frame(top, width = 650, height = 500,  padx = 30)
@@ -49,7 +50,7 @@ class EditStudentsWindowNEW():
         rdbFemale = tk.Radiobutton(workspaceFrame, text = "Female", variable = rdbGenderVar, value = 1)
         rdbMale = tk.Radiobutton(workspaceFrame, text = "Male", variable = rdbGenderVar, value = 0)
 
-        btnSave = tk.Button(workspaceFrame, text = "Save", command = lambda: main.updateStudent((eFNameVar.get(), eLNameVar.get(), eSIDVar.get(), rdbGenderVar.get(), chkbGraduatingVar.get(), chkbWalkingVar.get(), chkbSalVar.get(), chkbValVar.get(), chkbHallOfFameVar.get(), chkbNHSVar.get(), chkbHonorsScholarVar.get(), chkbHonorsDiplomaVar.get(), eMNameVar.get()  )))
+        btnSave = tk.Button(workspaceFrame, text = "Save", command = lambda: functions.updateStudent((eFNameVar.get(), eLNameVar.get(), eSIDVar.get(), rdbGenderVar.get(), chkbGraduatingVar.get(), chkbWalkingVar.get(), chkbSalVar.get(), chkbValVar.get(), chkbHallOfFameVar.get(), chkbNHSVar.get(), chkbHonorsScholarVar.get(), chkbHonorsDiplomaVar.get(), eMNameVar.get()  )))
 
         #These sad buttons were the only way I got it to work correctly :(
         btnWalking =       tk.Button(workspaceFrame, command = lambda: print(chkbWalkingVar.get()))

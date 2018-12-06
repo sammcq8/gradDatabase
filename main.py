@@ -1,13 +1,13 @@
 import tkinter as tk
 from tkinter import filedialog
 import sqlite3
-import main
+import functions
 import reports
 import NewEditStudents
 
 
-activeStudent = main.returnStudentSID(111111)
-#Main section of the GUI program
+activeStudent = functions.returnStudentSID(111111)
+#functions section of the GUI program
 class GradDatabase(tk.Tk):
 
     #Establishes the window for the program, every frame of the window has it's own entry into a dictionary
@@ -16,7 +16,8 @@ class GradDatabase(tk.Tk):
         container = tk.Frame(self)
 
         container.pack(side="top", fill = "both", expand = True)
-
+        self.title("Marion L Steele Graduation Database")
+        self.iconbitmap(r"Files\CometLogo.ico")
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
 
@@ -126,6 +127,7 @@ class MenuWindow(tk.Frame):
         btnEditStudents = tk.Button(self, text = "Edit Students", padx = 50, pady = 15, command = lambda: controller.showFrame(EditStudentsWindow))
         btnMassEditStudents = tk.Button(self, text = "Mass Edit Students", padx = 50, pady = 15, command = lambda: controller.showFrame(MassEditStudentsWindow))
         btnRunReports = tk.Button(self, text = "Run Reports", padx = 50, pady = 15, command = lambda: controller.showFrame(RunReportsWindow))
+        
 
         #________________________LAYOUTS__________________________________________
 
@@ -166,7 +168,7 @@ class ImportStudentsWindow(tk.Frame):
 
         lblTitle = tk.Label(workspaceFrame, text = "Marion L Steele High School Graduation Database - Import Students", pady = 7, anchor = "n")
 
-        btnImport = tk.Button(workspaceFrame, text = "Import Students",pady = 15, command = lambda: main.importCsvParser("students.csv"))
+        btnImport = tk.Button(workspaceFrame, text = "Import Students",pady = 15, command = lambda: functions.importCsvParser(filedialog.askopenfilename(initialdir = "%userprofile%/Documents",title = "Select CSV File", filetypes = (("csv files","*.csv"),("all files","*.*")))))
         #________________________LAYOUTS__________________________________________
         workspaceFrame.grid(column = 1, row = 0)
         lblTitle.grid(column = 0, row = 0)
@@ -179,11 +181,11 @@ class MassEditStudentsWindow(tk.Frame):
         menuFrame = tk.Frame(self, width = 150, height = 500, bg = "grey", padx = 10)
 
         #buttons
-        btnMenu = tk.Button(menuFrame, text = "Menu", pady = 15, command = lambda: controller.showFrame(MenuWindow))
-        btnImportStudents = tk.Button(menuFrame, text = "Import Students",pady = 15,command = lambda: controller.showFrame(ImportStudentsWindow))
-        btnEditStudents = tk.Button(menuFrame, text = "Edit Students",pady = 15,command = lambda: controller.showFrame(EditStudentsWindow))
+        btnMenu =             tk.Button(menuFrame, text = "Menu",              pady = 15, command = lambda: controller.showFrame(MenuWindow))
+        btnImportStudents =   tk.Button(menuFrame, text = "Import Students",   pady = 15,command = lambda: controller.showFrame(ImportStudentsWindow))
+        btnEditStudents =     tk.Button(menuFrame, text = "Edit Students",     pady = 15,command = lambda: controller.showFrame(EditStudentsWindow))
         btnMassEditStudents = tk.Button(menuFrame, text = "Mass Edit Students",pady = 15,command = lambda: controller.showFrame(MassEditStudentsWindow))
-        btnRunReports = tk.Button(menuFrame, text = "Run Reports",pady = 15,command = lambda: controller.showFrame(RunReportsWindow))
+        btnRunReports =       tk.Button(menuFrame, text = "Run Reports",       pady = 15,command = lambda: controller.showFrame(RunReportsWindow))
 
 
 
@@ -216,10 +218,10 @@ class RunReportsWindow(tk.Frame):
         #Workspace Frame Items
         #filepath = (filedialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*"))))
         #BUttons
-        HonorsScholar = tk.Button(workspaceFrame, text = "Honors Scholar", pady = 5, padx = 5,         command = lambda: reports.HonorScholarList((filedialog.asksaveasfilename(initialdir = "/",title = "Save As...", defaultextension = ".docx"))))
-        WalkingOrder = tk.Button(workspaceFrame,  text = "Boy Girl Walking Order", pady = 5, padx = 5, command = lambda: reports.boyGirlWalkingOrder((filedialog.asksaveasfilename(initialdir = "/",title = "Save As...", defaultextension = ".docx"))))
-        HonorsDiploma = tk.Button(workspaceFrame, text = "Honors Diploma", pady = 5, padx = 5,         command = lambda: reports.HonorsDiplomaList((filedialog.asksaveasfilename(initialdir = "/",title = "Save As...", defaultextension = ".docx"))))
-        Graduating = tk.Button(workspaceFrame,    text = "Graduating", pady = 5, padx = 5,             command =  lambda: reports.Graduating((filedialog.asksaveasfilename(initialdir = "/",title = "Save As...", defaultextension = ".docx"))))
+        HonorsScholar = tk.Button(workspaceFrame, text = "Honors Scholar", pady = 5, padx = 5,         command = lambda: reports.HonorScholarList((filedialog.asksaveasfilename(initialdir = "%userprofile%/Documents",title = "Save As...", defaultextension = ".docx"))))
+        WalkingOrder = tk.Button(workspaceFrame,  text = "Boy Girl Walking Order", pady = 5, padx = 5, command = lambda: reports.boyGirlWalkingOrder((filedialog.asksaveasfilename(initialdir = "%userprofile%/Documents",title = "Save As...", defaultextension = ".docx"))))
+        HonorsDiploma = tk.Button(workspaceFrame, text = "Honors Diploma", pady = 5, padx = 5,         command = lambda: reports.HonorsDiplomaList((filedialog.asksaveasfilename(initialdir = "%userprofile%/Documents",title = "Save As...", defaultextension = ".docx"))))
+        Graduating = tk.Button(workspaceFrame,    text = "Graduating", pady = 5, padx = 5,             command =  lambda: reports.Graduating((filedialog.asksaveasfilename(initialdir = "%userprofile%/Documents",title = "Save As...", defaultextension = ".docx"))))
 
         #buttons
         btnMenu =             tk.Button(menuFrame, text = "Menu", pady = 15,             command = lambda: controller.showFrame(MenuWindow))
@@ -240,6 +242,7 @@ class RunReportsWindow(tk.Frame):
         HonorsScholar.grid(column = 0, row = 1)
         HonorsDiploma.grid(column = 1, row = 2)
         Graduating.grid(column = 0, row = 2)
+
         #layouts in menu frame
         menuFrame.grid(column = 0, row = 1)
 
@@ -260,6 +263,7 @@ class SearchBox():
     def __init__(self, parent):
         top = tk.Toplevel()
         top.title("Search...")
+        top.iconbitmap(r"Files\CometLogo.ico")
         SearchTitle = tk.Label(top, text = "Enter Student Information to Search", padx = 5, pady = 5)
         SID = tk.Label(top, text = "Student ID:", padx = 5, pady = 5)
         FName = tk.Label(top, text = "First Name:", padx = 5, pady = 5)
@@ -282,7 +286,7 @@ class SearchBox():
         btnSearch.grid(row = 5, column = 3)
 
     def search(self, top, ESID, EFName, ELName):
-        SearchResults(self, main.searchStudents(ESID.get(), EFName.get(), ELName.get()))
+        SearchResults(self, functions.searchStudents(ESID.get(), EFName.get(), ELName.get()))
         top.destroy()
 
 class SearchResults():
@@ -290,7 +294,7 @@ class SearchResults():
     def __init__(self, parent, results ):
         top = tk.Toplevel()
 
-
+        top.iconbitmap(r"Files\CometLogo.ico")
         top.title("Results")
         title = tk.Label(top, text = "Select one:", pady = 10)
         title.pack()
