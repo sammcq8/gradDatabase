@@ -4,6 +4,7 @@ import sqlite3
 import functions
 import reports
 import NewEditStudents
+import initDatabase
 
 
 activeStudent = functions.returnStudentSID(111111)
@@ -28,18 +29,21 @@ class GradDatabase(tk.Tk):
         ISFrame = ImportStudentsWindow(container, self)
         MESFrame = MassEditStudentsWindow(container, self)
         RRFrame = RunReportsWindow(container, self)
+        SFrame = SetupWindow(container, self)
 
         self.frames[EditStudentsWindow] = ESframe
         self.frames[MenuWindow] = MenuFrame
         self.frames[ImportStudentsWindow] = ISFrame
         self.frames[MassEditStudentsWindow] = MESFrame
         self.frames[RunReportsWindow] = RRFrame
+        self.frames[SetupWindow] = SFrame
 
         ESframe.grid(row=0,column=0,sticky="nsew")
         MenuFrame.grid(row=0,column=0,sticky="nsew")
         ISFrame.grid(row=0,column=0,sticky="nsew")
         MESFrame.grid(row=0,column=0,sticky="nsew")
         RRFrame.grid(row=0,column=0,sticky="nsew")
+        SFrame.grid(row=0,column=0,sticky="nsew")
 
         self.showFrame(MenuWindow)
     #Takes and argument (cont) that is the frame needed, refrences the dictionary and makes that frame the toplevel
@@ -92,6 +96,7 @@ class EditStudentsWindow(tk.Frame):
         btnEditStudents = tk.Button(menuFrame, text = "Edit Students",pady = 15,command = lambda: controller.showFrame(EditStudentsWindow))
         btnMassEditStudents = tk.Button(menuFrame, text = "Mass Edit Students",pady = 15,command = lambda: controller.showFrame(MassEditStudentsWindow))
         btnRunReports = tk.Button(menuFrame, text = "Run Reports",pady = 15,command = lambda: controller.showFrame(RunReportsWindow))
+        btnSetup = tk.Button(self, text = "Setup", padx = 50, pady = 15, command = lambda: controller.showFrame(SetupWindow))
 
 
 
@@ -103,6 +108,7 @@ class EditStudentsWindow(tk.Frame):
         btnEditStudents.grid(row = 3)
         btnMassEditStudents.grid(row = 4)
         btnRunReports.grid(row = 5)
+        btnSetup.grid(row = 6)
 
 
 
@@ -127,7 +133,7 @@ class MenuWindow(tk.Frame):
         btnEditStudents = tk.Button(self, text = "Edit Students", padx = 50, pady = 15, command = lambda: controller.showFrame(EditStudentsWindow))
         btnMassEditStudents = tk.Button(self, text = "Mass Edit Students", padx = 50, pady = 15, command = lambda: controller.showFrame(MassEditStudentsWindow))
         btnRunReports = tk.Button(self, text = "Run Reports", padx = 50, pady = 15, command = lambda: controller.showFrame(RunReportsWindow))
-        
+        btnSetup = tk.Button(self, text = "Setup", padx = 50, pady = 15, command = lambda: controller.showFrame(SetupWindow))
 
         #________________________LAYOUTS__________________________________________
 
@@ -137,6 +143,7 @@ class MenuWindow(tk.Frame):
         btnEditStudents.pack()
         btnMassEditStudents.pack()
         btnRunReports.pack()
+        btnSetup.pack()
 
 class ImportStudentsWindow(tk.Frame):
     def __init__(self, parent, controller):
@@ -150,6 +157,7 @@ class ImportStudentsWindow(tk.Frame):
         btnEditStudents = tk.Button(menuFrame, text = "Edit Students",pady = 15,command = lambda: controller.showFrame(EditStudentsWindow))
         btnMassEditStudents = tk.Button(menuFrame, text = "Mass Edit Students",pady = 15, command = lambda: controller.showFrame(MassEditStudentsWindow))
         btnRunReports = tk.Button(menuFrame, text = "Run Reports",pady = 15, command = lambda: controller.showFrame(RunReportsWindow))
+        btnSetup = tk.Button(self, text = "Setup", padx = 50, pady = 15, command = lambda: controller.showFrame(SetupWindow))
 
 
 
@@ -161,6 +169,7 @@ class ImportStudentsWindow(tk.Frame):
         btnEditStudents.grid(row = 3)
         btnMassEditStudents.grid(row = 4)
         btnRunReports.grid(row = 5)
+        btnSetup.grid(row = 6)
 
         #workspace
 
@@ -186,6 +195,7 @@ class MassEditStudentsWindow(tk.Frame):
         btnEditStudents =     tk.Button(menuFrame, text = "Edit Students",     pady = 15,command = lambda: controller.showFrame(EditStudentsWindow))
         btnMassEditStudents = tk.Button(menuFrame, text = "Mass Edit Students",pady = 15,command = lambda: controller.showFrame(MassEditStudentsWindow))
         btnRunReports =       tk.Button(menuFrame, text = "Run Reports",       pady = 15,command = lambda: controller.showFrame(RunReportsWindow))
+        btnSetup = tk.Button(self, text = "Setup", padx = 50, pady = 15, command = lambda: controller.showFrame(SetupWindow))
 
 
 
@@ -197,6 +207,7 @@ class MassEditStudentsWindow(tk.Frame):
         btnEditStudents.grid(row = 3)
         btnMassEditStudents.grid(row = 4)
         btnRunReports.grid(row = 5)
+        btnSetup.grid(row = 6)
 
         #workspace
 
@@ -229,7 +240,7 @@ class RunReportsWindow(tk.Frame):
         btnEditStudents =     tk.Button(menuFrame, text = "Edit Students",pady = 15,     command = lambda: controller.showFrame(EditStudentsWindow))
         btnMassEditStudents = tk.Button(menuFrame, text = "Mass Edit Students",pady = 15,command = lambda: controller.showFrame(MassEditStudentsWindow))
         btnRunReports =       tk.Button(menuFrame, text = "Run Reports",pady = 15,       command = lambda: controller.showFrame(RunReportsWindow))
-
+        btnSetup = tk.Button(self, text = "Setup", padx = 50, pady = 15, command = lambda: controller.showFrame(SetupWindow))
 
 
         lblTitle = tk.Label(workspaceFrame, text = "Marion L Steele High School Graduation Database - Run Reports", pady = 7, anchor = "n")
@@ -251,6 +262,7 @@ class RunReportsWindow(tk.Frame):
         btnEditStudents.grid(row = 3)
         btnMassEditStudents.grid(row = 4)
         btnRunReports.grid(row = 5)
+        btnSetup.grid(row = 6)
 
 
 
@@ -314,7 +326,44 @@ class SearchResults():
         top.destroy()
         #self.destroy()
 
+class SetupWindow(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
 
+        menuFrame = tk.Frame(self, width = 150, height = 500, bg = "grey", padx = 10)
+
+        #buttons
+        btnMenu = tk.Button(menuFrame, text = "Menu", pady = 15, command = lambda: controller.showFrame(MenuWindow))
+        btnImportStudents = tk.Button(menuFrame, text = "Import Students",pady = 15,command = lambda: controller.showFrame(ImportStudentsWindow))
+        btnEditStudents = tk.Button(menuFrame, text = "Edit Students",pady = 15,command = lambda: controller.showFrame(EditStudentsWindow))
+        btnMassEditStudents = tk.Button(menuFrame, text = "Mass Edit Students",pady = 15, command = lambda: controller.showFrame(MassEditStudentsWindow))
+        btnRunReports = tk.Button(menuFrame, text = "Run Reports",pady = 15, command = lambda: controller.showFrame(RunReportsWindow))
+        btnSetup = tk.Button(self, text = "Setup", padx = 50, pady = 15, command = lambda: controller.showFrame(SetupWindow))
+
+
+
+        #layouts in menu frame
+        menuFrame.grid(column = 0, row = 0)
+
+        btnMenu.grid(column = 0, row = 0)
+        btnImportStudents.grid(row = 2)
+        btnEditStudents.grid(row = 3)
+        btnMassEditStudents.grid(row = 4)
+        btnRunReports.grid(row = 5)
+        btnSetup.grid(row = 6)
+
+        #workspace
+
+        workspaceFrame = tk.Frame(self, width = 650, height = 500,  padx = 30)
+
+        lblTitle = tk.Label(workspaceFrame, text = "Marion L Steele High School Graduation Database - Setup", pady = 7, anchor = "n")
+        lblAbout = tk.Label(workspaceFrame, wraplength = 500, justify = "center", text = "This database program was created by Samantha McQuate, Class of 2019, in the Network Communications Technology class. It was based on a previous Access Database. The first year this database was used was the graduation of the class of 2019. To see Samantha's other projects check out her Github account.")
+        btnRestart = tk.Button(workspaceFrame, text = "Wipe Database",pady = 15, command = initDatabase.restartDatabase)
+        #________________________LAYOUTS__________________________________________
+        workspaceFrame.grid(column = 1, row = 0)
+        lblTitle.grid(column = 0, row = 0)
+        lblAbout.grid(column = 0, row = 1)
+        btnRestart.grid(column = 0, row = 2)
 
 
 

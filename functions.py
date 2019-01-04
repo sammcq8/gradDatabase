@@ -1,6 +1,8 @@
 import sqlite3
 import csv as csv
 import itertools
+import os as os
+import initDatabase
 
 #Connect to the database
 conn = sqlite3.connect('GradDatabase.db')
@@ -117,6 +119,10 @@ def updateStudent(newStudentData):
         "SID" : newStudentData[2]})
     conn.commit()
 
+def RestartDatabase():
+    if os.path.exists("GradDatabase.db"):
+        os.remove("GradDatabase.db")
+    initDatabase.startDatabase()
 
 
 #importCsvParser('csvFunzies.csv')

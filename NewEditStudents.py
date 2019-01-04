@@ -1,6 +1,7 @@
 import functions
 import tkinter as tk
 
+
 class EditStudentsWindowNEW():
 
     def __init__(self, StudentID):
