@@ -1,25 +1,12 @@
-## Welcome to GitHub Pages
+## Graduation Database
 
-You can use the [editor on GitHub](https://github.com/sammcq8/gradDatabase/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+###
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### To start a new database:
+1. Go to the setup page and select “Wipe Database” and click Yes in the confirmation window.
+2. Then go to the import students page and select “Import Students”
+    a. Select the CSV File with the student information and click okay. 
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
 
 **Bold** and _Italic_ and `Code` text
 
