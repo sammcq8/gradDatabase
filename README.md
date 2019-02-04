@@ -1,6 +1,5 @@
 ## Graduation Database
 
-###
 
 ### To start a new database:
 1. Go to the setup page and select “Wipe Database” and click Yes in the confirmation window.
@@ -8,17 +7,8 @@
     a. Select the CSV File with the student information and click okay. 
 
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sammcq8/gradDatabase/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### Editing a student with the Edit Students window:
+1. Go to the Edit Students Page and click search. 
+2. Enter the student’s first or last name or their Student ID number and click Search
+3. A list of students who match the criteria you typed will appear. Select the student whose information you want to change and click enter. 
+4. You can change any of the information about the student in this window. #Do not change the student ID field.# Be sure to save periodically if you are editing one student for a long time.
