@@ -11,6 +11,10 @@ body{
   height: 100%; 
   position: fixed;
   overflow: auto; 
+  li{
+    border: 2px solid green;
+     
+  }
 }
 #vMenu{
   display: inline;
