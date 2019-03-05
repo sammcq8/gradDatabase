@@ -29,6 +29,10 @@ body{
   list-style-type: none;
   color: white;
 }
+#hMenu a{
+  font-style:normal;
+  color: white;
+}
 
   
 #info{
