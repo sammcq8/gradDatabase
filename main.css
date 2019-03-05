@@ -43,7 +43,7 @@ body{
   position: relative;
 }
 .title h1{
-  font: 1em Georgia, serif;
+  font: sans-serif;
 }
 .title{
   height: 10%;
