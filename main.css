@@ -27,6 +27,8 @@ body{
   width: 50%;
   padding: 10px;
   float:left;
-  
+}
+.title h1{
+  font: 1em Georgia, serif;
 }
   
