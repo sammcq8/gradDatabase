@@ -15,13 +15,18 @@ body{
 }
 #hMenu li{
   border: 2px solid green;
-  height: 25%
+  height: 25%;
 
 }
 #vMenu{
+  background-color: #007940;
+}
+#vMenu li{
   display: inline;
   list-style-type: none;
+  color: white;
 }
+
   
 #info{
   margin: auto;
