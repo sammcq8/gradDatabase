@@ -9,13 +9,13 @@ body{
   list-style-type: none;
   width: 15%;
   height: 90%; 
-  position: fixed;
+  position: sticky;
   overflow: auto; 
   float: left;
 }
 #vMenu li{
   border: 2px solid green;
-  height: 25%;
+  height: 22%;
 }
 #vMenu a{
   color: white;
