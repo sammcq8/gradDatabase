@@ -36,11 +36,13 @@ body{
   width: 50%;
   padding: 10px;
   float:left;
+  position: relative;
 }
 .title h1{
   font: 1em Georgia, serif;
 }
 .title{
   height: 10%;
+  position:sticky;
 }
   
