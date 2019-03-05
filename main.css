@@ -1,7 +1,7 @@
 body{
-  background-color: lightblue;
+  background-color: white;
 }
-#hMenu{
+#vMenu{
   background-color: lightgreen; 
   color: black;
   padding: 40px;
@@ -13,15 +13,15 @@ body{
   overflow: auto; 
   float: left;
 }
-#hMenu li{
+#vMenu li{
   border: 2px solid green;
   height: 25%;
 
 }
-#vMenu{
+#hMenu{
   background-color: #007940;
 }
-#vMenu li{
+#hMenu li{
   display: inline;
   list-style-type: none;
   color: white;
