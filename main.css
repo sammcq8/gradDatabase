@@ -16,7 +16,10 @@ body{
 #vMenu li{
   border: 2px solid green;
   height: 25%;
-
+}
+#vMenu a{
+  color: white;
+  font-style: normal;
 }
 #hMenu{
   background-color: #007940;
