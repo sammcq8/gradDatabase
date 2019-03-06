@@ -1,7 +1,7 @@
 body{
   background-color: white;
 }
-#vMenu{
+.vMenu{
   background-color: lightgreen; 
   color: black;
   padding: 40px;
@@ -13,31 +13,31 @@ body{
   overflow: auto; 
   float: left;
 }
-#vMenu li{
+.vMenu li{
   border: 2px solid green;
   height: 22%;
 }
-#vMenu a{
+.vMenu a{
   color: black;
   font-style: normal;
   display: block;
 }
-#hMenu{
+.hMenu{
   
 }
-#hMenu li{
+.hMenu li{
   display: inline;
   list-style-type: none;
   color: white;
 }
-#hMenu a{
+.hMenu a{
   font-style:normal;
   color: black;
   display: block;
 }
 
   
-#content{
+.content{
   margin: auto;
   width: 50%;
   padding: 10px;
