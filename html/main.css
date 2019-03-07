@@ -19,17 +19,17 @@ body{
 }
 .vMenu a{
   color: black;
-  font-style: normal;
+  text-decoration: none;
   display: block;
 }
 .hMenu{
    width = 100%;
-  
+    
 }
 .hMenu li{
   display: inline;
   float: left;
-  list-style-type: none;
+  text-decoration: none;
   color: white;
   padding = 8px;
 }
