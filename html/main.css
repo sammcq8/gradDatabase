@@ -33,6 +33,7 @@ body{
   font-style:normal;
   color: white;
   padding = 8px;
+  text-decoration: none;
 }
 .hMenu a{
   color: black;
