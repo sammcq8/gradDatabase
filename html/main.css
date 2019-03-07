@@ -15,7 +15,8 @@ body{
 }
 .vMenu li{
   border: 2px solid green;
-
+  font-style:normal;
+  
 }
 .vMenu a{
   color: black;
@@ -29,15 +30,15 @@ body{
 .hMenu li{
   display: inline;
   float: left;
-  text-decoration: none;
+  font-style:normal;
   color: white;
   padding = 8px;
 }
 .hMenu a{
-  font-style:normal;
   color: black;
   padding: 8px;
   background-color: #dddddd;
+  text-decoration: none;
 }
 
   
