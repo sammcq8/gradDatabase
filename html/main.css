@@ -4,7 +4,7 @@ body{
 .vMenu{
   background-color: lightgreen; 
   color: black;
-  padding: 40px;
+  padding: 0px;
   text-align: left;
   list-style-type: none;
   width: 15%;
@@ -27,13 +27,15 @@ body{
 }
 .hMenu li{
   display: inline;
+  float: left;
   list-style-type: none;
   color: white;
 }
 .hMenu a{
   font-style:normal;
   color: black;
-  display: block;
+  padding: 8px;
+  background-color: #dddddd;
 }
 
   
