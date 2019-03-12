@@ -60,16 +60,20 @@
       <div id = "functionsFile">
         <h2>functions.py</h2>
         <p>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-          dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          The functions file has all of the functions called by the program. 
         </p>
       </div>
       <div id = "reportsFile">
         <h2>reports.py</h2>
         <p>
           The reports file contains all the code used to generate reports. 
+          It imports pyton-docx to write to docx files, and imports sqlite to pull from the DB file. 
+          The format of each function is basically the same, a file path is passed through which is the file it will be saved as.
+          Then, if the filepath is not an empty string the function executes some sqlite code to return a list of all of the students
+          who meet the specific criteria for the report. It then opens a docx file for the specific template that is run. Some of the 
+          functions such as the walking order sort the data, but most simply write the data to the docx file and then closes and save the
+          file to the path that was passed through. This file also imports os.path to use the path extender to get the full path to the reports.
+          
         </p>
       </div>
       <div id = "reportTemplates">
