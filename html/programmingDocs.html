@@ -99,13 +99,45 @@
             </p>
           </li>
           <li>
-            <h4>
+            <h4>Run Reports</h4>
+            <p>
+              Like the rest of the frames there is a menuFrame with buttons that lead to every other frame. There are then buttons that will allow you to create
+              reports. Each button correlates to a function in the functions file and a template in the Report Templates folder. Each button calls the function that
+              correlates to it from the functions file, passing through the filepath the user selects with a saveFileDialog prompt that appears when the user selects
+              the button. The SaveFileDialog class is imported from Tkinter.
+            </p>
+          </li>
+        </ul>
       </div>
       <div id = "functionsFile">
         <h2>functions.py</h2>
         <p>
           The functions file has all of the functions called by the program. 
         </p>
+        <ul>
+          <li>
+            <h4>def searchStudents(SID, Fname, Lname):</h4>
+            <p>
+              This function recives a SID value, a First name, and Last name. Some of the values passed through may be empty strings, and
+              the first thing the function does is convert the empty strings to None values. It then runs a query in the database searching 
+              for students that match the values passed through.
+            </p>
+            <p>
+              This function returns a tuple of all of the students that match the passed through criteria
+            </p>
+          </li>
+          <li>
+            <h4>def returnStudent(studentInfo):</h4>
+            <p>
+              This function recives a tuple of the SID, FName and LName of the student. Non of these values can be none or null, but this is not
+              a problem because
+            </p>
+            <p>
+              This function returns 
+            </p>
+          </li>
+        </ul>
+        
       </div>
       <div id = "reportsFile">
         <h2>reports.py</h2>
@@ -128,6 +160,26 @@
           but it can work with pre-existing columns. If you change the template files at all ensure that the columns are still at the bottom of the 
           file. 
       </div>
+      <div id="samsNotes">
+        <h3>Sam's Notes</h3>
+        <p>
+          Hi, I'm Sam, the creator of this application. In this section I'm going to talk a little about me, what made me make the decisons I made 
+          for this program, and what I would do if I could do it again. This database massively helped me grow as a developer, especially as a Python
+          Developer. Looking back I made a lot of mistakes in deciding how to make this program becasue of lack of knowlege and preconcived 
+          notions. With that though, I am still at the time of writing this, very self taught. I'm a senior in high school, definetly not a 
+          professional programmer. It is very possible that the advice I give in this section
+          is also incorrect. Read this with that frame of refrence in mind.
+        </p>
+        <p>
+          If I could do this program again I would do a few things. Firstly I would write it in Java. Python is an awesome language, and I learned
+          a lot more about it in the making of this program, but Java has the upside of being strictly object oriented, as well as having a built in
+          graphics manager. I would have made a Student class that holds all of the data for each student, and I would not have stored the data in a 
+          database. A database is far more complicated than what is needed for this program, I probably would use a CSV file now. I also would have made
+          a class file for the menuFrame, as it was in every single frame of the project, yet I re-wrote it every time. This was a pain.
+        </p>
+      </div>
+        
+        
 
       
       
