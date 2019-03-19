@@ -108,6 +108,15 @@
             </p>
           </li>
         </ul>
+        <li>
+            <h4>SearchBox</h4>
+            <p>
+              This window does not have a menuframe. It has 3 lables, 3 text boxes and a button. The user enters data to search in the text
+              boxes and then clicks the save button. 
+              The save button calls the search function in the class which then calls the search results class, passsing through what is returned
+              from the functions.searchStudents function, then closes the window.
+            </p>
+          </li>
       </div>
       <div id = "functionsFile">
         <h2>functions.py</h2>
@@ -130,11 +139,53 @@
             <h4>def returnStudent(studentInfo):</h4>
             <p>
               This function recives a tuple of the SID, FName and LName of the student. Non of these values can be none or null, but this is not
-              a problem because
+              a problem because the input comes from a selection window.
             </p>
             <p>
-              This function returns 
+              This function returns one student that matches the parameters that are passed through.
             </p>
+          </li>
+          <li>
+            <h4>def createStudent(SID, FName, MName, LName, Gender):</h4>
+            <p>
+              This function recives the SID, FName, MName, LName, and Gender of a student. It uses this data to create a student with
+              default values for the rest of the values.
+            </p>
+          </li>
+          <li>
+            <h4>def importCSVParser(file):</h4>
+            <p>
+              This function recives a filepath to a csv file. It opens the CSV file and parses it. For each row it calls the CreateStudent
+              function.
+            </p>
+            <p>
+              It returns the number of lines that the parser read.
+            </p>
+          </li>
+          <li>
+            <h4>def UpdateStudent(newStudentData):</h4>
+            <p>
+              This function recives a tuple of dat, searches the database for the student the SID corresponds to and overwrites that 
+              student's data with the data it receives. 
+            </p>
+          </li>
+          <li>
+            <h4>def RestartDatabase():</h4>
+            <p>
+              This function finds the database file, deletes it, and then calls the startDatabase function from the initDatabse file which creates 
+              a new databse. This effectively wipes the database.
+            </p>
+          </li>
+          <li>
+            <h4>def massEditCSVParser():</h4>
+            <p>
+              This function receives a filepath to a csv file full of student ID numbers, the variable that is being changed for those students
+               and the value that that variable is being changed to. First if the variable is Hall Of Fame, Honors Diploma, or Honor Scholar it
+              removes the spaces from it. Then it parses the csv file and for each SID in the file it changes the value of the variable to the
+              value passed through.
+            </p>
+            <p>
+              This function returns the number of students it edited.
           </li>
         </ul>
         
