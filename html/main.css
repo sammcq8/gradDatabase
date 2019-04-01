@@ -16,6 +16,7 @@ body{
 .vMenu li{
   border: 2px solid green;
   font-style:normal;
+  position: sticky;
   
 }
 .vMenu a{
