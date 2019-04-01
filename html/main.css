@@ -7,7 +7,7 @@ body{
   padding: 0px;
   text-align: left;
   list-style-type: none;
-  width: 50px;
+  width: 100px;
   height: 85%; 
   margin-top: 30px;
   position: fixed;
@@ -50,8 +50,8 @@ body{
 .content{
   margin: auto;
   width: 50%;
-  margin-top: 30px;
-  margin-left: 50px;
+  margin-top: 60px;
+  margin-left: 100px;
   position: relative;
 }
 
@@ -61,7 +61,7 @@ body{
   font-color:white;
 }
 .title{
-  height: 10%;
+  height: 30px;
   position: fixed;
   width: 100%;
   background-color: #007940;
