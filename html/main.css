@@ -60,7 +60,7 @@ body{
 }
 .title{
   height: 10%;
-  position: sticky;
+  position: fixed;
   width: 100%;
   background-color: #007940;
 }
