@@ -1,6 +1,9 @@
-body{
+body, html{
   background-color: white;
+  margin:0;
+  padding:0;
 }
+
 .vMenu{
   background-color: #cccccc; 
   color: black;
