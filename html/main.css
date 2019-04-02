@@ -13,6 +13,7 @@ body{
   position: fixed;
   overflow: auto; 
   float: left;
+  z-index: 2;
 }
 .vMenu li{
   border: 2px solid yellow;
@@ -33,6 +34,7 @@ body{
    position: fixed;
    margin-top: 70px;
    border: 2px solid black;
+   z-index: 1;
 }
 .hMenu li{
   display: inline;
@@ -52,7 +54,6 @@ body{
 .info{
   width: 50%;
   margin-left: 250px;
-  margin-top: 150px;
   position: relative;
 }
 
@@ -66,5 +67,6 @@ body{
   position: fixed;
   width: 100%;
   background-color: #007940;
+  z-index: 3;
 }
   
