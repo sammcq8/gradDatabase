@@ -18,12 +18,15 @@ body, html{
   float: left;
   z-index: 1;
 }
-.vMenu li, ul{
+.vMenu li{
   border: 2px solid yellow;
   font-style:normal;
   text-decoration: none;
   padding: 15px;
   
+}
+.vMenu ul{
+  list-style-type:none; 
 }
 .vMenu a{
   color: black;
