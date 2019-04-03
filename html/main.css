@@ -49,6 +49,7 @@ body, html{
   color: white;
   padding = 8px;
   text-decoration: none;
+  margin: 5px;
 }
 .hMenu a{
   color: black;
