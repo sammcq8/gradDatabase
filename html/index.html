@@ -72,9 +72,28 @@
         it should be entered as "NMN."
       </p>
       <p>
+        Go to PowerSchool Quick Export. The feilds should be
+      </p>
+      <li>
+        <ol> Student_number </ol>
+        <ol> First_Name</ol>
+        <ol> Middle_Name</ol>
+        <ol> Last_Name</ol>
+        <ol> Gender</ol>
+      </li>
+      <p>
+        The Field Seperator should be a Comma, and the Record/Line Seperator should be CR (Carrige Return).
+      </p>
+      <p>
         Once you have exported the text file from PowerSchool Quick Export you need to change the file extenion to .csv.
         Open the file in finder and right click it. Select "Get Info" and click the Name and Extention dropdown. Select the ".text" at the
         end of the file name and change it to ".csv". The file is now ready to be imported into the database. 
+      </p>
+      <p>
+        Open the database program and select Import Students in the Menu. On this page click the button in the center that says Import Students
+        This will open a dialog window. Find where the csv file is saved, (typically it is in the downloads folder) and click it. Select okay.
+        The dialog window should disappear, and shortly after a popup will appear saying how many lines the file processed. This number should be 
+        the same as the number of students you exported. 
       </p>
       <img src="gradDatabase/html/images/Example csv.PNG" alt= "An example csv image" style="width:125px;height:125px;">
 
