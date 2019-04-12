@@ -60,7 +60,7 @@ body, html{
 
   
 .info{
-  border-top: 120px;
+  padding-top: 120px;
   margin-left: 250px;
   position: static;
 }
