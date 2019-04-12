@@ -60,7 +60,7 @@ body, html{
 
   
 .info{
-  margin-top: 120px;
+  border-top: 120px;
   margin-left: 250px;
   position: relative;
 }
